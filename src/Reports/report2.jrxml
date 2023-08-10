@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a5f5f114-6df7-4a1a-b6db-573251bf15e6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from vmsales]]>
+	</queryString>
+	<field name="vmsales_id" class="java.lang.Object"/>
+	<field name="Vehicle_ID" class="java.lang.Object"/>
+	<field name="date" class="java.lang.Object"/>
+	<field name="maintenance" class="java.lang.Object"/>
+	<field name="vmtotal" class="java.lang.Object"/>
+	<variable name="msubtotal" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{vmtotal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="155" y="0" width="242" height="34" uuid="45e5cf73-c15b-4adc-8ba2-56fc1e4c9f92"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maintenance  Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="89fb05d7-7896-4984-a079-cdaea2c997f2"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="87" height="20" uuid="74bd3bfc-9cdc-4d78-b846-9a000cc738b9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="87" y="2" width="68" height="20" uuid="ec2c996b-2d51-4f3e-acd5-fe356c06dc13"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Sales ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="2" width="99" height="37" uuid="c2abece4-e50e-4d70-93d9-60d4635587d9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Registration No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="2" width="178" height="20" uuid="a00678c0-7c83-4db2-a53d-da8d4281b5e6"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Maintenance Details]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="87" height="20" uuid="d33f6c60-988b-4269-b0ab-64844b7d47e6"/>
+				<textFieldExpression><![CDATA[""+$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="0" width="68" height="20" uuid="1601e7af-c787-4a4d-a13a-61abc4456fdb"/>
+				<textFieldExpression><![CDATA[""+$F{vmsales_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="0" width="99" height="20" uuid="272d7e59-7296-4238-bc4a-63e7622a4e12"/>
+				<textFieldExpression><![CDATA[""+$F{Vehicle_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="167" height="29" uuid="7b95adf2-46e0-4078-bedd-a3c5403720e7"/>
+				<textFieldExpression><![CDATA[""+$F{maintenance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="adf5e763-560e-4c87-b920-a073875b6d78"/>
+				<textFieldExpression><![CDATA[""+$F{vmtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="20" width="100" height="20" uuid="916e1bc5-051d-422d-b1b0-289791bbaef9"/>
+				<textFieldExpression><![CDATA[$V{msubtotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="375" y="20" width="69" height="20" uuid="34f205a1-48d6-4503-ad48-402bfb4647e2"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
